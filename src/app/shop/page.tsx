@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -147,14 +147,29 @@ export default function ShopPage() {
                     {/* Background Glow */}
                     <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(39,39,42,1)_0%,rgba(9,9,11,1)_100%)] opacity-50" />
                     
-                    {/* Product Mockup Visualization */}
-                    <div className="absolute inset-0 flex flex-col items-center justify-center p-12 text-center pointer-events-none">
-                      <div className="w-full aspect-[2/3] border border-dashed border-white/10 rounded-2xl flex flex-col items-center justify-center gap-4 group-hover:scale-105 transition-transform duration-700">
-                        <ShoppingBag size={40} className="text-zinc-800 opacity-20" />
-                        <span className="text-zinc-800 font-black text-2xl uppercase tracking-tighter opacity-10">
-                          {product.name.split(':')[0]}
-                        </span>
-                      </div>
+                    {/* Product Image Visualization */}
+                    <div className="absolute inset-0">
+                      {product.image ? (
+                        <img 
+                          src={product.image} 
+                          alt={product.name}
+                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                          onError={(e) => {
+                            (e.target as HTMLImageElement).src = '/images/logo.jpg';
+                          }}
+                        />
+                      ) : (
+                        <div className="absolute inset-0 flex flex-col items-center justify-center p-12 text-center pointer-events-none">
+                          <div className="w-full aspect-[2/3] border border-dashed border-white/10 rounded-2xl flex flex-col items-center justify-center gap-4 group-hover:scale-105 transition-transform duration-700">
+                            <ShoppingBag size={40} className="text-zinc-800 opacity-20" />
+                            <span className="text-zinc-800 font-black text-2xl uppercase tracking-tighter opacity-10">
+                              {product.name.split(':')[0]}
+                            </span>
+                          </div>
+                        </div>
+                      )}
+                      {/* Gradient Overlay for Depth */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
                     </div>
 
                     {/* Tags Overlay */}

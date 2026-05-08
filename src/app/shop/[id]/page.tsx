@@ -111,8 +111,13 @@ export default function ProductDetail() {
                 <motion.div 
                   animate={{ rotateY: selectedSide === 'Back' ? 180 : 0 }}
                   transition={{ type: 'spring', stiffness: 60, damping: 20 }}
-                  className="w-full aspect-[2/3] border-2 border-white/20 rounded-2xl flex flex-col items-center justify-center p-8 relative shadow-2xl bg-zinc-900 group-hover:scale-[1.02] transition-transform duration-700 [transform-style:preserve-3d]"
+                  className="w-full aspect-[2/3] border-2 border-white/20 rounded-2xl flex flex-col items-center justify-center p-8 relative shadow-2xl bg-zinc-900 group-hover:scale-[1.02] transition-transform duration-700 [transform-style:preserve-3d] overflow-hidden"
                 >
+                  <img 
+                    src={product.image || '/images/logo.jpg'} 
+                    className="absolute inset-0 w-full h-full object-cover opacity-60 transition-opacity" 
+                    alt="Preview"
+                  />
                   <div className="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] rounded-2xl" />
                   
                   {/* Front Side Content */}

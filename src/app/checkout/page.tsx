@@ -219,17 +219,22 @@ export default function CheckoutPage() {
                <h3 className="text-2xl font-black tracking-tight uppercase mb-8">Collection Summary</h3>
                
                <div className="space-y-6 mb-10 pb-10 border-b border-white/5">
-                  {items.map((item, i) => (
-                    <div key={i} className="flex justify-between items-start">
-                      <div>
-                        <p className="font-bold text-sm">{item.name} (x{item.quantity})</p>
-                        <p className="text-[10px] font-black text-zinc-600 uppercase tracking-widest mt-1">
-                          {item.personalization?.text || 'Standard'} | {item.personalization?.side}
-                        </p>
+                 {items.map((item, i) => (
+                    <div key={i} className="flex justify-between items-start gap-4">
+                      <div className="flex gap-4">
+                        <div className="w-12 h-12 bg-zinc-950 rounded-lg overflow-hidden border border-white/5 flex-shrink-0">
+                           <img src={item.image || '/images/logo.jpg'} className="w-full h-full object-cover" alt={item.name} />
+                        </div>
+                        <div>
+                          <p className="font-bold text-sm">{item.name} (x{item.quantity})</p>
+                          <p className="text-[10px] font-black text-zinc-600 uppercase tracking-widest mt-1">
+                            {item.personalization?.text || 'Standard'} | {item.personalization?.side}
+                          </p>
+                        </div>
                       </div>
                       <p className="font-black">${item.price * item.quantity}</p>
                     </div>
-                  ))}
+                 ))}
                </div>
 
                <div className="space-y-4 mb-10">

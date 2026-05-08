@@ -260,8 +260,12 @@ export default function ProductManagement() {
                 <div className="p-10 glass rounded-[3rem] border border-white/5 group hover:border-white/10 transition-all">
                   <div className="flex flex-col sm:flex-row justify-between items-start gap-8">
                     <div className="flex items-center gap-8 flex-1">
-                      <div className="w-24 h-24 bg-zinc-950 rounded-[2rem] border border-white/5 flex items-center justify-center text-zinc-800 group-hover:text-white transition-colors">
-                        <Zap size={32} />
+                      <div className="w-24 h-24 bg-zinc-950 rounded-[2rem] border border-white/5 overflow-hidden flex items-center justify-center text-zinc-800 group-hover:text-white transition-colors">
+                        {product.image ? (
+                          <img src={product.image} className="w-full h-full object-cover" alt={product.name} />
+                        ) : (
+                          <Zap size={32} />
+                        )}
                       </div>
                       <div>
                         <div className="flex items-center gap-3 mb-2">

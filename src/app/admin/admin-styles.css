@@ -1,0 +1,192 @@
+/* Design Tokens from Desktop App */
+:root {
+  --admin-bg: #030303;
+  --admin-surface: #0a0a0a;
+  --admin-surface-2: #121212;
+  --admin-accent: #ff4d4d;
+  --admin-accent-glow: rgba(239, 68, 68, 0.15);
+  --admin-border: rgba(255, 255, 255, 0.05);
+  --admin-border-bright: rgba(255, 255, 255, 0.12);
+  --admin-text-secondary: #94a3b8;
+  --admin-text-muted: #475569;
+  --admin-red: #ef4444;
+  --admin-red-dim: rgba(239, 68, 68, 0.1);
+  --admin-green: #22c55e;
+  --admin-green-dim: rgba(34, 197, 94, 0.1);
+  --admin-yellow: #eab308;
+  --admin-yellow-dim: rgba(234, 179, 8, 0.1);
+  --admin-blue: #3b82f6;
+  --admin-nav-h: 72px;
+}
+
+.admin-screen {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 24px 20px 100px;
+  min-height: 100vh;
+  background: var(--admin-bg);
+  position: relative;
+}
+
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px;
+}
+
+.admin-title {
+  font-size: 28px;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  font-style: italic;
+  text-transform: uppercase;
+}
+
+.admin-subtitle {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--admin-text-secondary);
+}
+
+.admin-stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.admin-stat-card {
+  background: var(--admin-surface);
+  border: 1px solid var(--admin-border);
+  border-radius: 20px;
+  padding: 16px 12px;
+  position: relative;
+  overflow: hidden;
+}
+
+.admin-stat-card--red { background: var(--admin-red-dim); border-color: rgba(239, 68, 68, 0.2); }
+.admin-stat-card--green { background: var(--admin-green-dim); border-color: rgba(34, 197, 94, 0.2); }
+.admin-stat-card--yellow { background: var(--admin-yellow-dim); border-color: rgba(234, 179, 8, 0.2); }
+
+.admin-stat-label {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 9px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--admin-text-secondary);
+  margin-bottom: 8px;
+}
+
+.admin-stat-value {
+  font-size: 32px;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.admin-stat-value-sm {
+  font-size: 14px;
+  font-weight: 800;
+  margin-top: 4px;
+}
+
+.admin-glass-card {
+  background: var(--admin-surface);
+  border: 1px solid var(--admin-border);
+  border-radius: 24px;
+  padding: 20px;
+  margin-bottom: 12px;
+}
+
+.admin-section-title {
+  font-size: 13px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.admin-bottom-nav {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  height: var(--admin-nav-h);
+  background: rgba(10, 10, 10, 0.8);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0 4px;
+  border-radius: 24px;
+  z-index: 100;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+}
+
+.admin-nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  color: var(--admin-text-muted);
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  transition: all 0.3s;
+  flex: 1;
+}
+
+.admin-nav-item--active {
+  color: #fff;
+}
+
+.admin-feed-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--admin-border);
+  border-radius: 16px;
+  margin-bottom: 8px;
+}
+
+.admin-badge-live {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--admin-red-dim);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  color: var(--admin-red);
+  font-size: 9px;
+  font-weight: 900;
+  padding: 4px 10px;
+  border-radius: 100px;
+  letter-spacing: 0.05em;
+}
+
+.admin-dot-live {
+  width: 6px;
+  height: 6px;
+  background: var(--admin-red);
+  border-radius: 50%;
+  animation: admin-pulse 1.5s infinite;
+}
+
+@keyframes admin-pulse {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(0.8); opacity: 0.5; }
+  100% { transform: scale(1); opacity: 1; }
+}
